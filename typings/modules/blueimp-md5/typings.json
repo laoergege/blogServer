@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/94692a26d73bf75defb05e8da5f4d618ff27932d/blueimp-md5/index.d.ts",
+    "raw": "registry:dt/blueimp-md5#2.7.0+20170323131124",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/94692a26d73bf75defb05e8da5f4d618ff27932d/blueimp-md5/index.d.ts"
+  }
+}
