@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "tsc -w & set DEBUG=blog-server:* & supervisor ./bin/www",
-    "serve": "set DEBUG=blog-server:* & supervisor ./bin/www"
+    "serve": "set DEBUG=blog-server:* & node ./bin/www"
   },
   "dependencies": {
     "blueimp-md5": "^2.8.0",
