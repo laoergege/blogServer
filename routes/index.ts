@@ -27,4 +27,12 @@ router.all('*', (req, res, next) => {
 import { AuthRouter } from "./auth.route";
 router.use('/auth', AuthRouter);
 
+import { AuthController } from "../controller/auth.controller";
+import { BookRoute } from "./markbooks.route";
+import { UploaderRoute } from "./upload.route";
+router.use(AuthController.tokenAuth)
+      .use('/markbooks', BookRoute)
+      .use('/upload', UploaderRoute)
+
+
 export const Router = router;

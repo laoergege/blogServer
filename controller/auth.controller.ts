@@ -58,6 +58,7 @@ export class AuthController {
             } catch (error) {
                 res.status(401);
                 res.json(result.TOKEN.FAIL);
+                return;
             }
  
             next();

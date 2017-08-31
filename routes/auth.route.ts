@@ -4,7 +4,7 @@ import { AuthController } from "../controller/auth.controller";
 import result from "../result";
 
 router.post('/', AuthController.loginAuth);
-router.get('/token', AuthController.tokenAuth, function (req, res) {
+router.get('/token', AuthController.tokenAuth, function (req, res, next) {
     res.json(result.TOKEN.SUCCESS);
 })
 

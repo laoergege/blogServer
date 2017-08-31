@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "tsc -w & set DEBUG=blog-server:* & supervisor ./bin/www",
+    "start": "supervisor ./bin/www",
     "serve": "set DEBUG=blog-server:* & node ./bin/www"
   },
   "dependencies": {
@@ -12,9 +12,12 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "express-bunyan-logger": "^1.3.2",
+    "fs-extra": "^4.0.1",
     "jade": "~1.11.0",
     "jsonwebtoken": "^7.4.3",
     "morgan": "~1.8.1",
+    "multiparty": "^4.1.3",
     "serve-favicon": "~2.4.2"
   },
   "devDependencies": {

@@ -1,3 +1,5 @@
+const path = require('path');
+
 export default {
     MONGODB: {
         uri: 'mongodb://119.29.101.43:27017/blog',
@@ -11,5 +13,6 @@ export default {
     ORIGINS: [
         'www.laoergege.cn',
         'www.admin.laoergege.cn'
-    ]
+    ],
+    STATIC: path.resolve(__dirname,'public')
 }

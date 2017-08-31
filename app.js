@@ -21,7 +21,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'),{setHeaders:(res, path, stat)=>{
+  res.append('Access-Control-Allow-Origin', '*');
+}}));
 
 //配置路由
 app.use(require('./routes').Router);
@@ -41,7 +43,8 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send(err)
+  console.log(err);
 });
 
 module.exports = app;
