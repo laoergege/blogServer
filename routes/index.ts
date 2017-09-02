@@ -18,10 +18,10 @@ router.all('*', (req, res, next) => {
     // OPTIONS
     if (req.method == 'OPTIONS') {
         res.sendStatus(200);
-        return false;
-    };
-
-    next('route');
+        res.end();
+    }else{
+        next('route');
+    }
 });
 
 import { AuthRouter } from "./auth.route";

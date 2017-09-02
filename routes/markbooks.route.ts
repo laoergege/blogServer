@@ -8,7 +8,7 @@ router.get('/', BookController.getBooks)
       .post('/', BookController.addBook)
       .delete('/:id', BookController.delBook)
       .put('/', BookController.modifyBook)
-      .get('/all', ArticleController.getALL)
+      // .get('/all', ArticleController.getALL)
       .use(ArticleRouter)
 
 export const BookRoute = router;
