@@ -11,8 +11,10 @@ export default {
         time: 60 * 60 * 24
     },
     ORIGINS: [
-        'www.laoergege.cn',
-        'www.admin.laoergege.cn'
+        'http://blog.laoergege.cn',
+        'http://admin.laoergege.cn',
+        'https://blog.laoergege.cn',
+        'https://admin.laoergege.cn'        
     ],
     STATIC: path.resolve(__dirname,'public')
 }

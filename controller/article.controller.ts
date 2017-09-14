@@ -119,18 +119,18 @@ export class ArticleController {
     }      
     
     /**
-     * 获取所有文集的 所有文章
+     * 获取所有文集及其所有文章
      * @param req 
      * @param res 
      * @param next 
      */
     static async getALL(req: Request, res: Response, next: NextFunction) {
         try {
-            let docs =  await ArticlesModel.find().populate("bookID").sort({"bookID.bookname": 1, create_at: -1});
+            let docs =  await ArticlesModel.find().populate("bookID").sort({create_at: -1});
 
             res.json(docs)
         } catch (error) {
-            console.log(error);
+            res.status(500);
         }       
     }
 }

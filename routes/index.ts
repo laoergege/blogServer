@@ -27,6 +27,10 @@ router.all('*', (req, res, next) => {
 import { AuthRouter } from "./auth.route";
 router.use('/auth', AuthRouter);
 
+// 博客 客户端 获取所有文集文章接口
+import { ArticleController } from "../controller/article.controller";
+router.get('/markbooks/articles/all', ArticleController.getALL);
+
 import { AuthController } from "../controller/auth.controller";
 import { BookRoute } from "./markbooks.route";
 import { UploaderRoute } from "./upload.route";
