@@ -9,7 +9,11 @@ const ArticleSchema = new Schema({
     wordCount: Number,
     readCount: {type: Number, default:0},
     favs: {type: Number, default:0},
-    bookID: {type: Schema.Types.ObjectId, ref: 'book'}
+    bookID: {type: Schema.Types.ObjectId, ref: 'book'},
+    tags: {
+        type: Array,
+        default: []
+    }
 });
 
 export interface IArticle extends Document{

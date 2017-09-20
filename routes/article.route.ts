@@ -8,5 +8,8 @@ router.post('/:book', ArticleController.asFileSave, ArticleController.saveArticl
       .get('/:book', ArticleController.getAticles)
       .put('/:book/:filename/title', ArticleController.modifyTitle)
       .delete('/:directory/:filename', ArticleController.deleteArticle)
+      .put('/:book/:articleID/tags/:tag', ArticleController.addTag)
+      .delete('/:book/:articleID/tags/:tag', ArticleController.removeTag)
+      .put('/:book/:articleID/readCount/top', ArticleController.topArticle)
 
 export const ArticleRouter = router;

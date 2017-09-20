@@ -22,7 +22,10 @@ export default {
         UPDATE_TITLE_SUCC: { code: 14, message: '修改标题成功', data:null},
         UPDATE_TITLE_FAIL: { code: 15, message: '修改标题失败', data:null},
         DELETE_FILE_FAIL: { code: 16, message: '删除文章失败', data:null},
-        DELETE_FILE_SUCC: { code: 17, message: '删除文章成功', data:null}          
+        DELETE_FILE_SUCC: { code: 17, message: '删除文章成功', data:null},
+        ADD_TAG: { code: 18, message: '添加标签成功', data:null},          
+        REMOVE_TAG: { code: 19, message: '删除标签成功', data:null},     
+        TOP_ARTICLE: { code: 20, message: '文章置顶成功', data:null},                         
     },
 
     IMAGE: {

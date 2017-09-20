@@ -105,19 +105,19 @@ export class ArticleController {
 
             let directory = req.params.directory;
             // 删除 文章
-            await ArticlesModel.remove({filename: filename});
+            await ArticlesModel.remove({ filename: filename });
 
             // 删除 文件
-            fs.removeSync(path.join(config.STATIC, 'books', directory, filename+'.md'));
-            fs.removeSync(path.join(config.STATIC, 'books', directory, filename+'.save.md'));
+            fs.removeSync(path.join(config.STATIC, 'books', directory, filename + '.md'));
+            fs.removeSync(path.join(config.STATIC, 'books', directory, filename + '.save.md'));
 
             res.json(result.ARTICLES.DELETE_FILE_SUCC);
         } catch (error) {
             res.status(500);
             res.json(result.ARTICLES.DELETE_FILE_FAIL);
         }
-    }      
-    
+    }
+
     /**
      * 获取所有文集及其所有文章
      * @param req 
@@ -126,11 +126,71 @@ export class ArticleController {
      */
     static async getALL(req: Request, res: Response, next: NextFunction) {
         try {
-            let docs =  await ArticlesModel.find().populate("bookID").sort({create_at: -1});
+            let docs = await ArticlesModel.find().populate("bookID").sort({ create_at: -1 });
 
             res.json(docs)
         } catch (error) {
             res.status(500);
-        }       
+        }
+    }
+
+    /**
+     * 为文章添加标签
+     * @param req 
+     * @param res 
+     * @param next 
+     */
+    static async addTag(req: Request, res: Response, next: NextFunction) {
+        try {
+            let { articleID, tag } = req.params;
+
+            let doc = await ArticlesModel.findByIdAndUpdate({ _id: articleID }, { $push: { tags: tag } });
+
+            res.json(result.ARTICLES.ADD_TAG)
+        } catch (error) {
+            res.status(500);
+        }
+    }
+
+    /**
+     * 为文章删除标签
+     * @param req 
+     * @param res 
+     * @param next 
+     */
+    static async removeTag(req: Request, res: Response, next: NextFunction) {
+        try {
+            let { articleID, tag } = req.params;
+
+            let doc = await ArticlesModel.findByIdAndUpdate({ _id: articleID }, { $pull: { tags: tag } });
+
+            res.json(result.ARTICLES.REMOVE_TAG)
+        } catch (error) {
+            res.status(500);
+        }
+    }
+
+    /**
+     * 文章置顶
+     * @param req 
+     * @param res 
+     * @param next 
+     */
+    static async topArticle(req: Request, res: Response, next: NextFunction) {
+        try {
+            let { articleID } = req.params;
+
+            let docs = await ArticlesModel.find().sort({ readCount: -1 });
+            let max = (docs[0] as IArticle).readCount;
+
+            let doc = await ArticlesModel.findByIdAndUpdate({ _id: articleID }, { readCount: max + 1 },{new: true});
+
+            (result.ARTICLES.TOP_ARTICLE.data as any) = doc;
+
+            res.json(result.ARTICLES.TOP_ARTICLE)
+        } catch (error) {
+            console.log(error)
+            res.status(500);
+        }
     }
 }
