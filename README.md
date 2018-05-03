@@ -16,7 +16,7 @@
 ## 项目架构
 总体来说，分为 *client* 部分和 *server* 部分。
 
-![image.png](https://api.laoergege.cn//images/o24UYhYnVxGAKCBx1Jr80fOb.PNG)
+![image.png](https://raw.githubusercontent.com/laoergege/laoergege-blog/master/assets//o24UYhYnVxGAKCBx1Jr80fOb.PNG)
 
 ###  Client
 客户端又分为两部分:
@@ -27,19 +27,19 @@
 
 **博客后台管理** 本人很喜欢 [简书](http://www.jianshu.com/) 的写作页面，先贴一张
 
-![image.png](https://api.laoergege.cn//images/iQmVX_GlqpBV5ytcF6FrBkzW.PNG)
+![image.png](https://raw.githubusercontent.com/laoergege/laoergege-blog/master/assets/iQmVX_GlqpBV5ytcF6FrBkzW.PNG)
 
 后来就写了类似简书这样的三栏结构管理页面
 
 
-![pc.png](https://api.laoergege.cn//images/Y7aw-IdpQ0qYUNuBHRGxhWh_.PNG)
+![pc.png](https://raw.githubusercontent.com/laoergege/laoergege-blog/master/assets/Y7aw-IdpQ0qYUNuBHRGxhWh_.PNG)
 
 左边为导航栏，中间为列表，右边为主要内容。
 也做了 tablet 和 mobile 的适应。
 
-![image.png](https://api.laoergege.cn//images/LccyZH4MHCGuY1iNezR_jQwK.PNG)
+![image.png](https://raw.githubusercontent.com/laoergege/laoergege-blog/master/assets/LccyZH4MHCGuY1iNezR_jQwK.PNG)
 
-![image.png](https://api.laoergege.cn//images/eKHrtveJSWvQeuTX3HUcTyyC.PNG)
+![image.png](https://raw.githubusercontent.com/laoergege/laoergege-blog/master/assets/eKHrtveJSWvQeuTX3HUcTyyC.PNG)
 
 其实我并没有采用类似 bootstrap 的栅格系统，我只是使用 js 监听窗口大小，监听两个临界值。这两值我也是参考其他栅格系统的。
 
@@ -57,7 +57,7 @@ mobile ---[573 px]--- tablet ---[993 px]--- pc
 
 markdown 编辑器我并没有采用 第三方的 markdown 编辑器，而是自己写了一个类似 简书的 简易的 markdown 编辑器组件。
 
-![image.png](https://api.laoergege.cn//images/fdGNmo7Wyb477Quvmt2bNld2.PNG)
+![image.png](https://raw.githubusercontent.com/laoergege/laoergege-blog/master/assets/fdGNmo7Wyb477Quvmt2bNld2.PNG)
 
 该编辑器组件支持**全屏写作**、**分屏预览**、**添加标签**、**图片拖动上传**、**撤销与恢复**、保存（保存方面做到了**自动保存**、**离线保存**，其实每次编辑后我都首先保存在 localstorage 里，并没有直接上传到服务器，页面刷新和 url 更新两个动作才会触发上传。离线保存 也就保存 localstorage 里，待上线再与服务器版本比较后更新。）。该编辑器最大的缺陷就是不支持多种键盘快捷键。。。
 
